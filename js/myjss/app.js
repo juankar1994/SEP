@@ -11,7 +11,11 @@ sepApp.config(['$routeProvider',
         controller: 'loginCtrl'
       }).
       when('/contact',{
-        templateUrl: 'html/temp.html',
+        templateUrl: 'html/contact.html',
+        controller: 'loginCtrl'
+      }).
+      when('/about',{
+        templateUrl: 'html/about.html',
         controller: 'loginCtrl'
       }).
       otherwise({
