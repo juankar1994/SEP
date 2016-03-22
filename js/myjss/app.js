@@ -10,13 +10,13 @@ sepApp.config(['$routeProvider',
         templateUrl: 'html/login.html',
         controller: 'loginCtrl'
       }).
-      when('/contact',{
-        templateUrl: 'html/contact.html',
-        controller: 'loginCtrl'
+      when('/cargaEvaluadores',{
+        templateUrl: 'html/cargaEvaluadores.html',
+        controller: 'cargaEvaluadoresCtrl'
       }).
-      when('/about',{
-        templateUrl: 'html/about.html',
-        controller: 'loginCtrl'
+      when('/cargaProyectos',{
+        templateUrl: 'html/cargaProyectos.html',
+        controller: 'cargaProyectosCtrl'
       }).
       otherwise({
         redirectTo: '/login'

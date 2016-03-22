@@ -49,9 +49,11 @@ h5 {
 	align-content: center;
 }
 
+
 a {
 	color: white;
 }
+
 
 .footer {
   position: absolute;
@@ -60,6 +62,15 @@ a {
   /* Set the fixed height of the footer here */
   height: 10%;
   background-color: white;
+}
+
+.upload-form-box {
+    margin-top: 10em;
+    margin-left: 4em;
+    margin-right: 4em;
+    margin-bottom: 2em;
+    align-content: center;
+    vertical-align: center;
 }
 
 

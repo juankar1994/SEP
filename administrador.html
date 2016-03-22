@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html ng-app="sepApp" lang="es">
+  <head>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mycss/frelancercss.css" rel="stylesheet">
+    <link href="css/mycss/form.css" rel="stylesheet">
+    <link href="css/mycss/mycss.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+    <script src="js/myjss/app.js"></script>
+    <script src="js/myjss/sepControllers.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <ul>
+            
+            </ul>
+            <div class="navbar-header">
+                <button type="button"  class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-left" style="margin-right:2em;">
+                <h5 align="left">Feria Nacional de Proyectos de Negocios<br><small style="color:#C1272D;">Sistema de Evaluación de Proyectos</small></h5>
+            </div>
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><img class="img-responsive" src="img/LOGOTEC.JPG" align="right"></li> 
+                </ul>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administración<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a style="color:#C1272D; font-weight: bold;" href="#">Perfil</a></li>
+                        <li><a style="color:#C1272D; font-weight: bold;" href="#">Control de Feria</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a style="color:#C1272D; font-weight: bold;" href="#">Croquis de Feria</a></li>
+                        <li><a style="color:#C1272D; font-weight: bold;" href="#">Carga de Croquis</a></li>
+                        
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Proyectos<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a style="color:#C1272D; font-weight: bold;" href="#">Proyectos</a></li>
+                        <li><a style="color:#C1272D; font-weight: bold;" href="#cargaProyectos">Carga de Proyectos</a></li>
+                        <li><a style="color:#C1272D; font-weight: bold;" href="#">Control de Proyectos</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Evaluación<b class="caret"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a style="color:#C1272D; font-weight: bold;" href="#">Registro de Evaluación</a></li>
+                        <li><a style="color:#C1272D; font-weight: bold;" href="#cargaEvaluadores">Carga de Evaluadores</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a style="color:#C1272D; font-weight: bold;" href="#">Asignación de Evaluaciones</a></li>
+                        <li><a style="color:#C1272D; font-weight: bold;" href="#">Activación de Evaluadores</a></li>
+                     <ul>
+                    </li>   
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div class="centerdiv" ng-view></div>
+    <footer class="text-center">
+        <div class="footer-above">
+        </div>
+        <div class="footer-below">
+            <div class="row" align="center">
+                <div class="col-md-5 ">
+                    <img src="img/TAE.png" alt="TAE" align="right" style="padding-top:0.5em;height:5em;width:5em;">
+                </div>
+                <div class="col-md-7 ">
+                    <h4 align="left" style="padding-top:1em;">Administración de Empresas TEC</h4>
+                </div>
+            </div>
+        </div>
+      </footer>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+
+
+
+

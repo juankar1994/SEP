@@ -1,0 +1,25 @@
+<div class="upload-form-box">
+    <h1>Carga de Proyectos</h1>
+    <form> 
+      <label for="Manual">Manual</label>
+      <input id="Manual" type="radio" name="metodo_carga" ng-model="metodo_carga" value="Manual" >
+      
+      <label for="Automatico">Automatica</label>
+      <input id="Automatico" type="radio" name="metodo_carga" ng-model="metodo_carga" value="Automatico">
+    </form>
+    
+    <div>
+      <div ng-show="metodo_carga == 'Automatico'" style="padding-right:10em;padding-left:10em;padding-top:4em;">
+        <div class="row" align="left" style="padding-bottom:2em;">
+            <div class="col-md-5" align="right">
+                <h4 align="right">Seleccione el archivo a cargar</h4>
+            </div>
+            <div class="col-md-7" align="left">
+                <input  type = "file" />
+            </div>
+        </div>
+        <button class=" btn btn-success" ng-click="uploadFile()" >Cargar Proyectos</button>
+      </div>
+      <p ng-show="metodo_carga == 'Manual'">This is the first content!</p>
+    </div>
+  </div>

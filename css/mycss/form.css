@@ -92,7 +92,7 @@ img { max-width: 100%; }
 .top-content .text h1 { color: #fff; }
 
 .top-content .description {
-	margin: 20px 0 10px 0;
+	margin: 1.25em 0 0.625em 0;
 }
 
 .top-content .description p { opacity: 0.8; }

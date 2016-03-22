@@ -1,0 +1,66 @@
+<div class="upload-form-box">
+    <h1>Carga de Evaluadores</h1>
+    <form> 
+      <label for="Manual">Manual</label>
+      <input id="Manual" type="radio" name="metodo_carga" ng-model="metodo_carga" value="Manual" >
+      
+      <label for="Automatico">Automatica</label>
+      <input id="Automatico" type="radio" name="metodo_carga" ng-model="metodo_carga" value="Automatico">
+    </form>
+    <div>
+        <div ng-show="metodo_carga == 'Automatico'" style="margin-right:10em;margin-left:10em;margin-top:4em; margin-bottom:13em;">
+            <div class="row" align="left" style="padding-bottom:2em;">
+                <div class="col-md-5" align="right">
+                    <h4 align="right">Seleccione el archivo a cargar</h4>
+                </div>
+                <div class="col-md-7" align="left">
+                    <input  type = "file" />
+                </div>
+            </div>
+            <button class=" btn btn-success" ng-click="uploadFile()" >Cargar Evaluadores</button>
+        </div>
+        <div ng-show="metodo_carga == 'Manual'" style="margin 0em;">
+            <div align="container-fluid">
+                <div class="row">
+                    <form role="form" ng-submit="cargarEvaluador()" method="post">
+                        <div class="col-md-4 col-md-offset-4">
+                            <h4 align="left">Nombre</h4>
+                            <input type="text" ng-model="evaluador.nombre" placeholder="Nombre de evaluador" class="form-control" style="width:25em;" required title="Ingrese Nombre de Evaluador">
+                        </div>
+                        <div class="col-md-4 col-md-offset-4">
+                            <h4 align="left">Primer Apellido</h4>  
+                            <input type="text" ng-model="evaluador.apellido1" placeholder="Primer apellido" class="form-control" style="width:25em;" required title="Ingrese primer apellido de Evaluador">
+                        </div>
+                        <div class="col-md-4 col-md-offset-4">
+                            <h4 align="left">Segundo Apellido</h4>  
+                            <input type="text" ng-model="evaluador.apellido2" placeholder="Segundo apellido" class="form-control" style="width:25em;" required title="Ingrese segundo apellido de Evaluador">
+                        </div>
+                        <div class="col-md-4 col-md-offset-4">
+                            <h4 align="left">Cédula</h4>
+                            <input type="text" ng-model="evaluador.cedula" placeholder="Cédula"  class="form-control" style="width:25em;" required title="Ingrese cédula de Evaluador">
+                        </div>
+                        <div class="col-md-4 col-md-offset-4">
+                            <h4 align="left">Numero de telefono</h4>
+                            <input type="text" ng-model="evaluador.telefono" placeholder="Número de telefono" class="form-control" style="width:25em;" required title="Ingrese télefono de Evaluador">
+                        </div>
+                        <div class="col-md-4 col-md-offset-4">
+                            <h4 align="left">Correo Electronico</h4>
+                            <input type="email"  ng-model="evaluador.correo" placeholder="Correo Electrónico" class="form-control" style="width:25em;" required title="Ingrese correo electronico de Evaluador">
+                        </div>
+                        <div class="col-md-4 col-md-offset-4">
+                            <button type="submit" class="btn btn-lg btn-info" style="margin-top:1em;">Registrar Evaluador</button>			
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

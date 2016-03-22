@@ -14,33 +14,19 @@
   <body>
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button"  class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <img class="img-responsive" src="img/LOGOTEC.JPG" align="left">
-                <a class="navbar-brand" href="#">SEP</a>
+            <div class="navbar-left" style="margin-right:2em;">
+                <h5 align="left">Feria Nacional de Proyectos de Negocios<br><small>Sistema de Evaluación de Proyectos</small></h5>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="navbar-right">
                 <ul class="nav navbar-nav">
-                    <li><a href="#index"><strong>Inicio</strong></a></li> 
-                    <li><a href="#products"><strong>Proyectos</strong></a></li>
-                    <li><a href="#about"><strong>Acerca de Nosotros</strong></a></li>
-                    <li><a href="#contact"><strong>Contáctenos</strong></a></li>
+                    <li><img src="img/LOGOTEC.JPG" align="right"></li> 
                 </ul>
             </div>
-            
-            <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
-    <div class="centerdiv" ng-view></div>
-    <footer class="text-center footer">
+    <div class="centerdiv" ng-include = "'/html/login.html'"></div>
+    <footer class="text-center">
         <div class="footer-above">
         </div>
         <div class="footer-below">
