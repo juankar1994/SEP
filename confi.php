@@ -1,4 +1,4 @@
 <?php 
-    $db = new PDO('mysql:host=db4free.net;dbname=sepdba', 'admi', 'admi1234');
+    $mysqli = new mysqli("db4free.net", "admi", "admi1234", "sepdba");
 ?>
 

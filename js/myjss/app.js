@@ -18,6 +18,14 @@ sepApp.config(['$routeProvider',
         templateUrl: 'html/cargaProyectos.html',
         controller: 'cargaProyectosCtrl'
       }).
+      when('/controlFeria',{
+        templateUrl: 'html/controlFeria.html',
+        controller: 'controlFeriaCtrl'
+      }).
+      when('/creacionFeria',{
+        templateUrl: 'html/creacionFeria.html',
+        controller: 'creacionFeriaCtrl'
+      }).
       otherwise({
         redirectTo: '/login'
       });

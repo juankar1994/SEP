@@ -5,30 +5,30 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
 header('Access-Control-Allow-Origin: *');
 include_once('confi.php');
 
+
+
+
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-
-    // Get _POST
-    // Insert _POST into _POST base
-        
-    $postdata = file_get_contents("php://input");
-    $request = json_decode($postdata);
-    $sql = "INSERT INTO sepdba.evaluador(nombre,telefono,correoElectronico,PIN,apellido1,apellido2,idFeria) VALUES
-    ('$request->nombre','$request->telefono','$request->correoElectronico','1234','$request->apellido1','$request->apellido2','1');";
     
-
-    $qur = db->prepare($sql);
-
-    $qur->execute();
-
-    if($qur){
-
-        $json = array("status" => 1, "msg" => "Evaluador Registrado!");
-
-    }else{
-
-        $json = array("status" => 0, "msg" => "Error registrando evaluador!");
-
+	$nombre = $_POST['nombre'];
+	$telefono = $_POST['telefono'];
+	$correoElectronico = $_POST['correoElectronico'];
+	$apellido1 = $_POST['apellido1'];
+	$apellido2 = $_POST['apellido2'];
+    
+    if (mysqli_connect_errno()) {
+        $json = array("status" => 0, "msg" => "Error de conexion!");
     }
+    
+    
+    $query = "INSERT INTO sepdba.Evaluador(nombre,telefono,correoElectronico,PIN,apellido1,apellido2,idFeria) VALUES
+    ('$nombre','$telefono','$correoElectronico','1234','$apellido1','$apellido2','1');";
+    
+    
+    if (!$result = $mysqli->query($query))
+        $json = array("status" => 0, "msg" => "Error registrando evaluador!", "error" =>$mysqli->error);
+    else
+        $json = array("status" => 1, "msg" => "Evaluador Registrado!");
 
 }
 else{
@@ -36,9 +36,6 @@ else{
     $json = array("status" => 0, "msg" => "Request method not accepted");
 
 }
-
-
-
 
 /* Output header */
 

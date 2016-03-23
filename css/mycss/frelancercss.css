@@ -56,8 +56,10 @@ header {
   color: white;
 }
 header .container {
-  padding-top: 100px;
-  padding-bottom: 50px;
+  padding-left: 0em;
+  padding-right: 0em;  
+  padding-top: 2em;
+  padding-bottom: 1em;
 }
 header img {
   display: block;
