@@ -1,0 +1,64 @@
+<div class="evaluador-box">
+    <div class="container-fluid" align="center">
+        <div class="row">
+            <h1>Activación de Evaluadores</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <div class="col-md-1 col-sm-6" style="padding-left:0;padding-right:0;margin-left:0;margin-right:0.5em;">
+                    <h4 align="right">Feria:</h4>
+                </div>
+                <div class="col-md-4 col-sm-6" style="padding-left:0;padding-right:0;margin-left:0;margin-right:0;">
+                    <select align="left" ng-change="getEvaluadores()" ng-model="idFeria" style="width:100%;height:2em;" required>
+                        <option value="">Seleccione Feria</option>
+                        <option ng-repeat="feria in ferias" value="{{feria.idFeria}}">{{feria.nombre + ' - ' + feria.anno + ' - ' +  feria.periodo}}</option>
+                    </select>
+                </div>
+                <div class="col-md-4 col-sm-6 col-md-offset-2" style="padding-left:0;padding-right:0;margin-left:0;margin-right:0.5em;">
+                    <h4 align="right">Búsqueda de Evaluadores</h4>
+                </div>
+                <div class="col-md-2 col-sm-6"style="padding-left:0;padding-right:0;margin-left:0;margin-right:0;">
+                    <input align="left" type="text" style="width:100%;height:2em;" ng-model="query.$" class="input-large search-query" placeholder="Nombre">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;">Nombre</th>
+                            <th style="text-align:center;">Primer Apellido</th>
+                            <th style="text-align:center;">Segundo Apellido</th>
+                            <th style="text-align:center;">Correo Electronico</th>
+                            <th style="text-align:center;">Estado</th>
+                            <th style="text-align:center;">Registro</th>
+                            <th style="text-align:center;">Editar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="evaluador in evaluadores | filter:query | itemsPerPage: evaluadoresPorPagina">
+                            <td>{{evaluador.nombre}}</td>
+                            <td>{{evaluador.apellido1}}</td>
+                            <td>{{evaluador.apellido2}}</td>
+                            <td>{{evaluador.correoElectronico}}</td>
+                            <td>
+                                <button class="btn btn-block btn-default btn-inactivo-e" ng-show="{{evaluador.estado == 'INACTIVO'}}">Inactivo</button>
+                                <button class="btn btn-block btn-default btn-activo-e" ng-show="{{evaluador.estado != 'INACTIVO'}}">Activo</button>
+                            </td>
+                            <td>
+                                <button class="btn btn-block btn-default btn-inactivo" ng-show="{{evaluador.estado == 'INACTIVO'}}" ng-click="activarEvaluador(evaluador.idEvaluador)">Activar</button>
+                                <button class="btn btn-block btn-default btn-activo" ng-show="{{evaluador.estado != 'INACTIVO'}}">Reenviar</button>
+                            </td>
+                            <td><a><img src="../img/edit.png"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>        
+            </div>
+        </div>
+        <div class="row" align="center">
+            <dir-pagination-controls boundary-links="true" template-url="html/templates/dirPagination.tpl.html"></dir-pagination-controls>
+        </div>
+    </div>
+</div>

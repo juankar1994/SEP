@@ -8,16 +8,27 @@
       <input id="Automatico" type="radio" name="metodo_carga" ng-model="metodo_carga" value="Automatico">
     </form>
     <div>
-        <div ng-show="metodo_carga == 'Automatico'" style="margin-right:10em;margin-left:10em;margin-top:4em; margin-bottom:13em;">
-            <div class="row" align="left" style="padding-bottom:2em;">
-                <div class="col-md-5" align="right">
-                    <h4 align="right">Seleccione el archivo a cargar</h4>
+        <div ng-show="metodo_carga == 'Automatico'" style="margin-top:2em; margin-bottom:8em;">
+            <form role="form" ng-submit="cargarEvaluadores()" method="post">
+                <div class="row" align="left" style="padding-bottom:2em;">
+                    <div class="col-md-4 col-md-offset-4">
+                        <h4 align="left">Seleccione el archivo a cargar</h4>
+                    </div>
+                    <div class="col-md-4 col-md-offset-4" align="center">
+                        <input type="file" on-read-file="readFile($fileContent)" style="width: 100%;" ng-model="content" accept=".csv" required>
+                    </div>
+                    <div class="col-md-4 col-md-offset-4">
+                        <h4 align="left">Feria</h4>
+                        <select align="left" id="feria" ng-model="evaluador.feria" style="width: 100%;" required>
+                            <option value="">Seleccione Feria</option>
+                            <option ng-repeat="feria in ferias" value="{{feria.idFeria}}">{{feria.nombre + ' - ' + feria.anno + ' - ' +  feria.periodo}}</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-md-7" align="left">
-                    <input  type = "file" />
+                <div class="col-md-4 col-md-offset-4">
+                    <button type="submit" class="btn btn-success">Cargar Evaluadores</button>
                 </div>
-            </div>
-            <button class=" btn btn-success" ng-click="uploadFile()" >Cargar Evaluadores</button>
+            </form>
         </div>
         <div ng-show="metodo_carga == 'Manual'" style="margin 0em;">
             <div align="container-fluid">
@@ -25,27 +36,29 @@
                     <form role="form" ng-submit="cargarEvaluador()" method="post">
                         <div class="col-md-4 col-md-offset-4">
                             <h4 align="left">Nombre</h4>
-                            <input type="text" ng-model="evaluador.nombre" placeholder="Nombre de evaluador" class="form-control" style="width:25em;" required title="Ingrese Nombre de Evaluador">
+                            <input type="text" ng-model="evaluador.nombre" placeholder="Nombre de evaluador" class="form-control" style="width:100%;" required title="Ingrese Nombre de Evaluador">
                         </div>
                         <div class="col-md-4 col-md-offset-4">
                             <h4 align="left">Primer Apellido</h4>  
-                            <input type="text" ng-model="evaluador.apellido1" placeholder="Primer apellido" class="form-control" style="width:25em;" required title="Ingrese primer apellido de Evaluador">
+                            <input type="text" ng-model="evaluador.apellido1" placeholder="Primer apellido" class="form-control" style="width:100%;" required title="Ingrese primer apellido de Evaluador">
                         </div>
                         <div class="col-md-4 col-md-offset-4">
                             <h4 align="left">Segundo Apellido</h4>  
-                            <input type="text" ng-model="evaluador.apellido2" placeholder="Segundo apellido" class="form-control" style="width:25em;" required title="Ingrese segundo apellido de Evaluador">
-                        </div>
-                        <div class="col-md-4 col-md-offset-4">
-                            <h4 align="left">Cédula</h4>
-                            <input type="text" ng-model="evaluador.cedula" placeholder="Cédula"  class="form-control" style="width:25em;" required title="Ingrese cédula de Evaluador">
+                            <input type="text" ng-model="evaluador.apellido2" placeholder="Segundo apellido" class="form-control" style="width:100%;" required title="Ingrese segundo apellido de Evaluador">
                         </div>
                         <div class="col-md-4 col-md-offset-4">
                             <h4 align="left">Numero de telefono</h4>
-                            <input type="text" ng-model="evaluador.telefono" placeholder="Número de telefono" class="form-control" style="width:25em;" required title="Ingrese télefono de Evaluador">
+                            <input type="text" ng-model="evaluador.telefono" placeholder="Número de telefono" class="form-control" style="width:100%;" required title="Ingrese télefono de Evaluador">
                         </div>
                         <div class="col-md-4 col-md-offset-4">
                             <h4 align="left">Correo Electronico</h4>
-                            <input type="email"  ng-model="evaluador.correo" placeholder="Correo Electrónico" class="form-control" style="width:25em;" required title="Ingrese correo electronico de Evaluador">
+                            <input type="email"  ng-model="evaluador.correo" placeholder="Correo Electrónico" class="form-control" style="width:100%;" required title="Ingrese correo electronico de Evaluador">
+                        </div>
+                        <div class="col-md-4 col-md-offset-4">
+                            <h4 align="left">Feria</h4>
+                            <select align="left" id="feria" ng-model="evaluador.feria" style="width: 100%;" required>
+                              <option ng-repeat="feria in ferias" value="{{feria.idFeria}}">{{feria.nombre + ' - ' + feria.anno + ' - ' +  feria.periodo}}</option>
+                            </select>
                         </div>
                         <div class="col-md-4 col-md-offset-4">
                             <button type="submit" class="btn btn-lg btn-info" style="margin-top:1em;">Registrar Evaluador</button>			

@@ -1,0 +1,34 @@
+<div class="modal fade" id="insertIntegrante" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Registro de Integrante</h3>
+            </div>
+            <div class="modal-body">
+                <form role="form" ng-submit="insertarIntegrante()">
+                    <div class="form-group" align="left">
+                        <label for="nombre" >Nombre</label>
+                        <input type="text" class="form-control" ng-model="integrante.nombre" placeholder="Nombre" required/>
+                    </div>
+                    <div class="form-group" align="left">
+                        <label for="descripcion" align="left">Primer Apellido</label>
+                        <input type="text" class="form-control" ng-model="integrante.apellido1" placeholder="Primer Apellido" required/>
+                    </div>
+                    <div class="form-group" align="left">
+                        <label for="descripcion" align="left">Segundo Apellido</label>
+                        <input type="text" class="form-control" ng-model="integrante.apellido2" placeholder="Segundo Apellido" required/>
+                    </div>
+                    <div class="form-group" align="left">
+                        <label for="cantidad" align="left">Correo Electronico</label>
+                        <input type="email" class="form-control" ng-model="integrante.correo " placeholder="Correo electronico" required/>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-warning btn-lg btn-block">
+                            Agregar Integrante
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

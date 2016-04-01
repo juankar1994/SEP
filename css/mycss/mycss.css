@@ -73,7 +73,30 @@ a {
     vertical-align: center;
 }
 
+.proyectos-box {
+    margin-top: 10em;
+    margin-bottom: 2em;
+    align-content: center;
+    vertical-align: center;
+}
+
 .control-feria-box{
+    margin-top: 10em;
+    margin-bottom: 3em;
+    align-content: center;
+    vertical-align: center;
+}
+
+.control-admi{
+    margin-top: 10em;
+    margin-bottom: 3em;
+    align-content: center;
+    vertical-align: center;
+}
+
+
+
+.evaluador-box{
     margin-top: 10em;
     margin-bottom: 3em;
     align-content: center;
@@ -97,6 +120,61 @@ a.btn-cFeria:hover{
     color: white;
 }
  
+table, th , td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 0.5px;
+  margin-bottom: 0.5em;
+}
 
+.hero-feature {
+    padding : 0.1em;
+}
+
+
+.thumbnail .caption{
+    margin: 0;
+    padding: 0;
+}
+
+.btn-inactivo, .btn-inactivo:hover{
+    background-color: #069FCE;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+.btn-inactivo-e, .btn-inactivo-e:hover{
+    background-color: #E0380B;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+.btn-activo ,.btn-activo:hover{
+    background-color: #00A99D;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+.btn-activo-e, .btn-activo-e:hover{
+    background-color: #8CC63F;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+
+
+
+.pagination{height:40px;margin:20px 0;}
+.pagination ul{display:inline-block;*display:inline;*zoom:1;margin-left:0;margin-bottom:0;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 2px rgba(0, 0, 0, 0.05);-moz-box-shadow:0 1px 2px rgba(0, 0, 0, 0.05);box-shadow:0 1px 2px rgba(0, 0, 0, 0.05);}
+.pagination ul>li{display:inline;}
+.pagination ul>li>a,.pagination ul>li>span{float:left;padding:0 14px;line-height:38px;text-decoration:none;background-color:#ffffff;border:1px solid #dddddd;border-left-width:0;}
+.pagination ul>li>a:hover,.pagination ul>.active>a,.pagination ul>.active>span{background-color:#f5f5f5;color:black;}
+.pagination ul>li>a,ul>.disabled>a{color:gray;}
+.pagination ul>.active>a,.pagination ul>.active>span{color:black;cursor:default;}
+.pagination ul>.disabled>span,.pagination ul>.disabled>a,.pagination ul>.disabled>a:hover{color:black;background-color:transparent;cursor:default;}
+.pagination ul>li:first-child>a,.pagination ul>li:first-child>span{border-left-width:1px;-webkit-border-radius:3px 0 0 3px;-moz-border-radius:3px 0 0 3px;border-radius:3px 0 0 3px;}
+.pagination ul>li:last-child>a,.pagination ul>li:last-child>span{-webkit-border-radius:0 3px 3px 0;-moz-border-radius:0 3px 3px 0;border-radius:0 3px 3px 0;}
+.pagination-centered{text-align:center;}
+.pagination-right{text-align:right;}
 
 

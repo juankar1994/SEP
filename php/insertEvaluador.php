@@ -15,6 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 	$correoElectronico = $_POST['correoElectronico'];
 	$apellido1 = $_POST['apellido1'];
 	$apellido2 = $_POST['apellido2'];
+    $feria = $_POST['feria'];
     
     if (mysqli_connect_errno()) {
         $json = array("status" => 0, "msg" => "Error de conexion!");
@@ -22,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     
     
     $query = "INSERT INTO sepdba.Evaluador(nombre,telefono,correoElectronico,PIN,apellido1,apellido2,idFeria) VALUES
-    ('$nombre','$telefono','$correoElectronico','1234','$apellido1','$apellido2','1');";
+    ('$nombre','$telefono','$correoElectronico','1234','$apellido1','$apellido2','$feria');";
     
     
     if (!$result = $mysqli->query($query))

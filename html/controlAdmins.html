@@ -1,0 +1,49 @@
+<div class="control-admi">
+    <h1>Control de Administradores</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Primer apellido</th>
+                            <th>Segundo apellido</th>
+                            <th>Correo Electrónico</th>
+                            <th>Contraseña</th>
+                            <th>Configuración</th>
+                        </tr>
+                    </thead>
+                   <tbody>
+                        <tr ng-repeat="administrador in administradores">
+                            <td>{{ administrador.idAdministrador }}</td>
+                            <td>{{ administrador.nombre }}</td>
+                            <td>{{ administrador.apellido1 }}</td>
+                            <td>{{ administrador.apellido2 }}</td>
+                            <td>{{ administrador.correoElectronico }}</td>
+                            <td>{{ administrador.contrasenia }}</td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-warning btn-sm btn-block" ng-click="editAdministrador(administrador);">Editar</button>        
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button class="btn btn-sm btn-danger btn-block" ng-click="eliminarAdministrador(administrador.correoElectronico)" method="post">Eliminar</button>
+
+                                    </div>
+                                </div>
+                                
+                            </td>
+                        </tr>
+
+
+                   </tbody>
+
+                </table>
+                </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <div ng-include="'html/editAdministrador.html'"></div>
+</div>

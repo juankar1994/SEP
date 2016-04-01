@@ -1,0 +1,51 @@
+<!-- Page Content -->
+<div class="proyectos-box">
+    <div class="container-fluid" align="center">
+        <div class="row">
+            <h1>Proyectos</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <div class="col-md-1 col-sm-6" style="padding-left:0;padding-right:0;margin-left:0;margin-right:0.5em;">
+                    <h4 align="right">Feria:</h4>
+                </div>
+                <div class="col-md-4 col-sm-6" style="padding-left:0;padding-right:0;margin-left:0;margin-right:0;">
+                    <select align="left" id="feria" ng-model="query.idFeria" style="width:100%;height:2em;" required>
+                        <option value="">Seleccione Feria</option>
+                        <option ng-repeat="feria in ferias" value="{{feria.idFeria}}">{{feria.nombre + ' - ' + feria.anno + ' - ' +  feria.periodo}}</option>
+                    </select>
+                </div>
+                <div class="col-md-4 col-sm-6 col-md-offset-2" style="padding-left:0;padding-right:0;margin-left:0;margin-right:0.5em;">
+                    <h4 align="right">Búsqueda de Proyectos</h4>
+                </div>
+                <div class="col-md-2 col-sm-6"style="padding-left:0;padding-right:0;margin-left:0;margin-right:0;">
+                    <input align="left" type="text" style="width:100%;height:2em;" ng-model="query.$" class="input-large search-query" placeholder="Nombre, Sede">
+                </div>
+            </div>
+        </div>
+        <div class="row" align="center">
+            <div class="col-lg-10 col-lg-offset-1">
+                <div class="row" align="center">
+                    <div style="height:12.5em;width=100%;" class="col-md-3 col-md-height col-sm-6 hero-feature" 
+                         dir-paginate="proyecto in proyectos | filter:query | itemsPerPage: proyectosPorPagina" current-page="paginaActual">
+                        <div class="thumbnail"  style="height:12.5em;">
+                            <img src="/img/noimage.jpg" alt="" style="width:8em;height:6.2em;">
+                            <div class="caption" style="margin:0;">
+                                <h4 class="pull-left" align="left">{{proyecto.nombreProyecto}}</h4>
+                                <br>
+                                <button ng-click="verProyecto(proyecto.idProyecto);" class="btn btn-block btn-primary">Ver Información</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" align="center">
+            <dir-pagination-controls boundary-links="true" template-url="html/templates/dirPagination.tpl.html"></dir-pagination-controls>
+        </div>
+    </div>
+    
+</div>
+<!-- /.container -->
+
+

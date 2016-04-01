@@ -1,0 +1,135 @@
+<div class="upload-form-box" ng-init="showSeleccion = true; showRegistro=false; showNotaRegistrada=false">
+    <h1>Registro Evaluación</h1>
+    <!--Seleccion de Evaluación a realizar-->
+    <div ng-show="showSeleccion" style="margin-top:2em;">
+        <div class="container-fluid">
+            <div class="row" style="margin-bottom:1.5em;">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="col-sm-3">
+                        <label style="text-align:left;width:100%;">Feria:</label>
+                    </div>
+                    <div class="col-sm-9">
+                         <select  id="feria" ng-model="idFeria" 
+                         ng-change="llamarProyectos()"
+                         style="width: 100%;" required>
+                             <option value="">Seleccione Feria</option>
+                             <option ng-repeat="feria in ferias" value="{{feria.idFeria}}">{{feria.nombre + ' - ' + feria.anno + ' - ' +  feria.periodo}}</option>
+                         </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:1.5em;">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="col-sm-3">
+                        <label style="text-align:left;width:100%;">Proyecto:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <select align="left" id="proyecto" ng-model="idProyecto" ng-change="llamarProfesores()" style="width:100%;" required>
+                            <option value="">Seleccione Proyecto</option>
+                            <option ng-repeat="proyecto in proyectos" value="{{proyecto.idProyecto}}">{{proyecto.nombre}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom:1.5em;">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="col-sm-3">
+                        <label style="text-align:left;width:100%;">Evaluador:</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <select align="left" id="evaluador" ng-model="idEvaluador" ng-change="llamarRubricas()" style="width: 100%;" required>
+                            <option value="">Seleccione Evaluador</option>
+                            <option ng-repeat="evaluador in evaluadores" value="{{evaluador.idEvaluador}}">{{evaluador.nombre+ ' ' + evaluador.apellido1 + ' ' +  evaluador.apellido2}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>  
+            <div class="row" style="margin-bottom:1.5em;">
+                <div class="col-md-4 col-md-offset-4">
+                    <button type="button" ng-disabled="idEvaluador == ''" ng-click="llamarRubricas();showRegistro=true;showSeleccion=false;" class="btn btn-warning btn-block">Registrar Evaluación</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Registro de Evaluación-->
+    <div ng-show="showRegistro" style="margin-top:2em;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <table class="table table-hover text-left">
+                        <thead>
+                            <tr>
+                                <th>Rubrica</th>
+                                <th class="col-md-4">Rango</th>
+                                <th>Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="rubrica in rubricas" >
+                                <td>{{ rubrica.nombre }}</td>
+                                <td class="col-md-4">
+                                    <input ng-model="valores[$index]"  type="range" min="0" max="100">
+                                </td>
+                                <td>
+                                    {{valores[$index]}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <label style="text-align:left;width:100%">Comentario:</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <textarea class="form-control" rows="3" id="comment" ng-model="comentario"></textarea>
+                </div>
+            </div>
+            <div class="row" style="margin-top:1.5em">
+                <div class="col-md-2 col-md-offset-4">
+                    <button type="button" ng-click="cancelar(); showRegistro=false; showSeleccion=true" class="btn btn-danger btn-block">Cancelar</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" ng-click="enviar(); showRegistro=false; showNotaRegistrada=true" class="btn btn-success btn-block">Enviar</button>
+                </div>
+            </div>
+            <div >
+                
+            </div>
+        </div>
+    </div>
+    <div style="padding-right:30em;padding-left:30em; padding-bottom:1em;" ng-show="showNotaRegistrada">
+        <div class="container-fluid">
+            <div class="row">
+                <h3>Evaluación</h3>        
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <table class="table table-hover text-left">
+                        <thead>
+                            <tr>
+                                <th>Premiacion</th>
+                                <th class="col-md-4">Nota final</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="respuesta in respuestas" >
+                                <td>{{ respuesta.nombre }}</td>
+                                <td>{{ respuesta.nota }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <button type="button" ng-click="resetDatos(); showNotaRegistrada=false; showSeleccion=true" class="btn btn-danger btn-block">Finalizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,47 @@
+<div class="proyectos-box">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="jumbotron col-md-8 col-md-offset-2" style="padding: 1em;border-style:dashed;">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <h2 style="font-style: oblique; color:#004080;">{{proyecto.nombreProyecto}}</h2>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="/img/noimage.jpg" alt="" style="width:8em;height:6.2em;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 align="left">Descripción:</h4>
+                        <p style="text-align:justify;font-size: 1em;" ng-bind="proyecto.descripcion"></p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12" >
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h4 align="left">Sede:</h4>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <h4 align="left">{{proyecto.nombreSede}}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12" >
+                                <h4 align="left">Integrantes:</h4>
+                                <ul style="margin-bottom:0.1em;" ng-repeat="integrante in proyecto.Integrantes">
+                                    <li style="font-family: helvetica;font-size: 12px;text-align:left;">{{integrante.nombre + ' ' + integrante.apellido1 + ' ' + integrante.apellido2 + ' ' + integrante.correoElectronico}}</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-12">
+                                <h2 align="left" style="font-weight: bold;">STAND #{{proyecto.stand}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--p><a class="btn btn-warning btn-lg" href="#" role="button">Editar</a></p-->
+            </div>        
+        </div>
+    </div>
+</div>
+

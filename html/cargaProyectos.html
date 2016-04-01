@@ -7,19 +7,112 @@
       <label for="Automatico">Automatica</label>
       <input id="Automatico" type="radio" name="metodo_carga" ng-model="metodo_carga" value="Automatico">
     </form>
-    
     <div>
-      <div ng-show="metodo_carga == 'Automatico'" style="padding-right:10em;padding-left:10em;padding-top:4em;">
-        <div class="row" align="left" style="padding-bottom:2em;">
-            <div class="col-md-5" align="right">
-                <h4 align="right">Seleccione el archivo a cargar</h4>
-            </div>
-            <div class="col-md-7" align="left">
-                <input  type = "file" />
+        <div ng-show="metodo_carga == 'Automatico'" style="margin-top:1em; margin-bottom:1em;">
+            <div class="row" align="left" style="padding-bottom:2em;">
+                <div class="col-md-4 col-md-offset-4">
+                    <h4 align="left">Archivo de proyectos</h4>
+                </div>
+                <form role="form" ng-submit="cargarProyectos()" method="post">
+                    <div class="col-md-4 col-md-offset-4" align="center">
+                        <input type="file" on-read-file="readFileProyectos($fileContent)" style="width: 100%;" ng-model="contentProyectos" accept=".csv" required>
+                    </div>
+                    <div class="col-md-4 col-md-offset-4">
+                        <h4 align="left">Archivo de participantes</h4>
+                    </div>
+                    <div class="col-md-4 col-md-offset-4" align="center">
+                        <input type="file" on-read-file="readFileIntegrantes($fileContent)" style="width: 100%;" ng-model="contentIntegrantes" accept=".csv" required>
+                    </div>
+                    <div class="col-md-4 col-md-offset-4">
+                        <h4 align="left">Tipo de Proyecto</h4>
+                        <select align="left" id="feria" ng-model="proyecto.tipo" style="width: 100%;" required>
+                            <option value="">Seleccione Tipo de Proyecto</option>
+                            <option value="3">Exhibición</option>
+                            <option value="1" selected>Competición</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 col-md-offset-4">
+                        <h4 align="left">Feria</h4>
+                        <select align="left" id="feria" ng-model="proyecto.feria" style="width: 100%;" required>
+                            <option value="">Seleccione Feria</option>
+                            <option ng-repeat="feria in ferias" value="{{feria.idFeria}}">{{feria.nombre + ' - ' + feria.anno + ' - ' +  feria.periodo}}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 col-md-offset-4">
+                        <button type="submit" style="margin-top:1em;" class=" btn btn-lg btn-block btn-success">Cargar Proyectos</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <button class=" btn btn-success" ng-click="uploadFile()" >Cargar Proyectos</button>
-      </div>
-      <p ng-show="metodo_carga == 'Manual'">This is the first content!</p>
+        <div ng-show="metodo_carga == 'Manual'" style="margin 0em;">
+            <div class="container-fluid">
+                <div class="row">
+                    <form role="form" ng-submit="cargarProyecto()" method="post">
+                        <div class="col-md-6 col-md-offset-3">
+                            <h4 align="left">Nombre</h4>
+                            <input type="text" ng-model="proyecto.nombre" placeholder="Nombre de Proyecto" class="form-control" style="width:100%;" required title="Ingrese Nombre del Proyecto">
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <h4 align="left">Descripción</h4>  
+                            <textarea ng-model="proyecto.descripcion" placeholder="Descripcion de Proyecto" class="form-control" style="width:100%;" maxlength="200" required title="Ingrese descripcion del proyecto"></textarea>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <h4 align="left">Número de Stand</h4>  
+                            <textarea ng-model="proyecto.stand" placeholder="Stand del Proyecto" class="form-control" style="width:100%;" maxlength="200" required title="Ingrese el número de stand proyecto"></textarea>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <h4 align="left">Tipo de Proyecto</h4>
+                            <select align="left" id="feria" ng-model="proyecto.tipo" style="width: 100%;" required>
+                                <option value="">Seleccione Tipo de Proyecto</option>
+                                <option value="0">Exhibición</option>
+                                <option value="1">Competición</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <h4 align="left">Profesor</h4>
+                            <select align="left" id="feria" ng-model="proyecto.profesor" style="width: 100%;" required>
+                                <option value="">Seleccione Profesor</option>
+                                <option ng-repeat="prof in profesores" value="{{prof.idProfesor}}">{{prof.nombre + ' ' + prof.apellido1 + ' ' + prof.apellido2}}</option>
+                            </select>
+                            <a class="btn btn-block btn-sm btn-primary" ng-click="newProfesor();">Registrar nuevo profesor</a>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <h4 align="left">Integrantes</h4>  
+                            <table style="width:100%;">
+                              <tr ng-repeat="integ in proyecto.integrantes | orderBy: apellido1">
+                                <td>{{ integ.apellido1 + ' ' + integ.nombre}}</td>
+                                <td>{{ integ.correo }}</td>
+                                <td>
+                                    <a class="btn" ng-click="remove(proyecto.integrantes, $index)">
+                                        <img src="/img/delete.png">
+                                    </a>
+                                </td>
+                              </tr>
+                            </table>
+                            <a class="btn btn-block btn-sm btn-primary" ng-click="newIntegrante();">Agregar integrante</a>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <h4 align="left">Sede</h4>
+                            <select align="left" id="feria" ng-model="proyecto.sede" style="width: 100%;" required>
+                                <option value="">Seleccione Sede</option>
+                                <option ng-repeat="sede in sedes" value="{{sede.idSede}}">{{sede.nombre}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <h4 align="left">Feria</h4>
+                            <select align="left" id="feria" ng-model="proyecto.feria" style="width: 100%;" required>
+                                <option value="">Seleccione Feria</option>
+                                <option ng-repeat="feria in ferias" value="{{feria.idFeria}}">{{feria.nombre + ' - ' + feria.anno + ' - ' +  feria.periodo}}</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3">
+                            <button type="submit" class="btn btn-lg btn-block btn-success" style="margin-top:1em;">Registrar Evaluador</button>	
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
     </div>
+    <div ng-include="'html/agregarIntegrante.html'"></div>
+    <div ng-include="'html/insertProfesor.html'"></div>
   </div>
